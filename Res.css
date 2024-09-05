@@ -1,0 +1,179 @@
+/* Reset styles and set up base styles */
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+}
+
+/* Container for the background animation */
+section {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background: #3586ff;
+    overflow: hidden;
+}
+
+/* Animated wave background */
+section .air {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background: url(https://1.bp.blogspot.com/-xQUc-TovqDk/XdxogmMqIRI/AAAAAAAACvI/AizpnE509UMGBcTiLJ58BC6iViPYGYQfQCLcBGAsYHQ/s1600/wave.png);
+    background-size: 1000px 100px;
+    z-index: 100; /* Ensure it is below .card */
+}
+
+/* Animation keyframes for waves */
+@keyframes wave {
+    0% {
+        background-position-x: 0px;
+    }
+    100% {
+        background-position-x: 1000px;
+    }
+}
+
+@keyframes wave2 {
+    0% {
+        background-position-x: 0px;
+    }
+    100% {
+        background-position-x: -1000px;
+    }
+}
+
+/* Climate app card styling */
+.card {
+    width: 90%;
+    max-width: 470px;
+    background: linear-gradient(135deg, #000000, #5a5a5a);
+    color: #fff;
+    margin: 0 auto; /* Center horizontally */
+    border-radius: 20px;
+    padding: 40px 35px;
+    text-align: center;
+    position: fixed; /* Position fixed to keep it at the top */
+    top: 20px; /* Adjust distance from the top */
+    left: 50%;
+    transform: translateX(-50%); /* Center horizontally */
+    z-index: 2000; /* Ensure it is above the animated background */
+}
+
+/* Search box styling */
+.search {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative; /* Ensure that suggestions are positioned relative to this container */
+}
+
+.search input {
+    border: 0;
+    outline: 0;
+    background: #ebfffc;
+    color: #555;
+    padding: 10px 25px;
+    height: 60px;
+    border-radius: 30px;
+    flex: 1;
+    margin-right: 16px;
+    font-size: 18px;
+}
+
+.search button {
+    border: 0;
+    outline: 0;
+    background: #ebfffc;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+}
+
+.search button img {
+    width: 16px;
+}
+
+/* Weather icon and details styling */
+.weather-icon {
+    width: 170px;
+    margin-top: 30px;
+}
+
+.weather h1 {
+    font-size: 80px;
+    font-weight: 500;
+}
+
+.weather h2 {
+    font-size: 45px;
+    font-weight: 400;
+    margin-top: -10px;
+}
+
+.details {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    margin-top: 50px;
+}
+
+.col {
+    display: flex;
+    align-items: center;
+    text-align: left;
+}
+
+.col img {
+    width: 40px;
+    margin-right: 10px;
+}
+
+.humidity, .wind {
+    font-size: 28px;
+    margin-top: -6px;
+}
+
+/* Weather and error message styling */
+.weather {
+    display: none;
+}
+
+.error {
+    text-align: left;
+    margin-left: 10px;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+#suggestions {
+    border-radius: 20px;
+    position: absolute;
+    top: 100%; /* Position it directly below the search bar */
+    left: 0;
+    width: 100%;
+    max-height: 300px; /* Limit height */
+    overflow-y: auto; /* Scroll if more items */
+    background-color: #000000;
+    border: none; /* Remove border to avoid extra lines */
+    box-shadow: 0 2px 4px rgb(255, 255, 255); /* Optional: add shadow for better visibility */
+    z-index: 1000; /* Ensure it appears above other elements */
+    margin-top: 2px; /* Adjust spacing to ensure it aligns properly */
+    padding: 0; /* Ensure no extra padding causing issues */
+}
+
+#suggestions div {
+    padding: 8px;
+    cursor: pointer;
+    border-bottom: 1px solid #ddd; /* Separate items with border */
+}
+
+#suggestions div:hover {
+    background-color: #ff0000;
+}
